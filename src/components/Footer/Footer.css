@@ -1,0 +1,42 @@
+.footer{
+    background-color: black;
+    height: 5rem;
+    width: 100vw;
+    /* position: absolute;
+    bottom: -5rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.footer-contents{
+    height: 5rem;
+    width: 75rem;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.media-link{
+    margin: 1rem;
+    display: flex;
+}
+.media-link a{
+    margin-right: 2rem;
+    /* text-decoration: none; */
+    color: white;
+}
+.copyright{
+    margin: 1rem;
+    text-align: right;
+}
+.copyright h3{
+    display: inline;
+}
+.copyright a{
+    text-decoration: none;
+    color: white;
+}
