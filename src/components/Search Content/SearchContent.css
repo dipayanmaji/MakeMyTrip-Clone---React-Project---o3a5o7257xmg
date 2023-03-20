@@ -1,9 +1,19 @@
+.search-content-container{
+    /* background-color: red; */
+    background-image:  linear-gradient(#051423, #15457b);
+    height: 19rem;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
 .search-content{
     box-sizing: border-box;
     width: 75rem;
     padding: 3.5rem 2rem 2rem 2rem;
     background-color: white;
     border-radius: 1rem;
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
     font-family: Calibri;
     font-size: 18px;
     display: flex;
@@ -16,14 +26,14 @@
     align-items: center;
     /* position: relative; */
 }
-.trip-type{
+.trip-type, .room-type{
     width: 100%;
     height: 2rem;
     /* background-color: red; */
     display: flex;
     align-items: center;
 }
-.trip-type div{
+.trip-type div, .room-type div{
     margin-right: 2rem;
     border-radius: 20px;
     padding: 5px;
@@ -36,10 +46,10 @@
     background-color: #eaf5ff;
     font-weight: 900;
 }
-.trip-type label, .trip-type input{
+.trip-type label, .trip-type input, .room-type label, .room-type input{
     cursor: pointer;
 }
-.trip-details{
+.trip-details, .room-details{
     width: 71rem;
     height: 7rem;
     margin-top: 1rem;
@@ -49,33 +59,36 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
 }
-
-.trip-details-input{
+.trip-details-input, .room-details-input{
+    box-sizing: border-box;
+    height: 7rem;
+    width: 17.72rem;
     display: flex;
     flex-direction: column;
     border-right: solid 1px #e7e7e7;
+    background-color: white;
     cursor: pointer;
     position: relative;
-    transition: 500ms;
+    /* transition: 500ms; */
 }
-.trip-details-input:hover{
+.trip-details-input:hover, .room-details-input:hover{
     background-color: #eaf5ff;
 }
 
-.trip-details-input:first-child{
+.trip-details-input:first-child, .room-details-input:first-child{
     border-radius: 10px 0px 0px 10px;
 }
-.trip-details-input:last-child{
+.trip-details-input:last-child, .room-details-input:last-child{
     border-radius: 0px 10px 10px 0px;
     border: none;
 }
-.trip-details-input label{
+.trip-details-input label, .room-details-input label{
     padding-left: 1.5rem;
     padding-top: 0.5rem;
     cursor: pointer;
-    transition: 500ms;
+    /* transition: 500ms; */
 }
-.trip-details-input input{
+.trip-details-input input, .room-details-input input{
     box-sizing: border-box;
     height: 100%;
     width: 100%;
@@ -84,35 +97,52 @@
     padding: 0 1rem;
     font-size: xx-large;
     font-weight: bold;
+    text-transform: capitalize;
     cursor: pointer;
     /* background-color: red; */
-    transition: 500ms;
+    /* transition: 500ms; */
 }
-.trip-details-input input:hover{
+.trip-details-input input:hover, .room-details-input input:hover{
     background-color: #eaf5ff;
 }
-.trip-details-input:first-child input{
+.trip-details-input:first-child input, .room-details-input:first-child input{
     border-radius: 0px 0px 0px 10px;
 }
-.trip-details-input:last-child input{
+.trip-details-input:last-child input, .room-details-input:last-child input{
     border-radius: 0px 0px 10px 0px;
 }
-.departure-display, .return-display{
+.departure-display, .return-display, .check-in-display, .check-out-display{
     box-sizing:border-box;
-    position: absolute;
-    top: 8px;
+    width: 17.71rem;
+    height: 5.1rem;
+    margin: 0;
+    background-color:inherit;
+    font-size: larger;
+    /* transition: 500ms; */
+    position: relative;
+}
+.departure-display p, .return-display p, .check-in-display p, .check-out-display p{
+    box-sizing: border-box;
+    margin: 0;
     padding-left:1rem;
     padding-top: 0.8rem;
-    background-color:white;
-    width: 85%;
-    height: 70%;
-    font-size: larger;
-    transition: 500ms;
+    width: 15rem;
+    height: 5.1rem;
+    background-color: inherit;
+    position: relative;
+    z-index: 1;
+    /* transition: 500ms; */
 }
-.departure-display:hover, .return-display:hover{
-    background-color: #eaf5ff;
+.departure-display input, .return-display input, .check-in-display input, .check-out-display input{
+    position: absolute;
+    color: rgba(255, 255, 255, 0);
+    background-color: inherit;
+    width: 17.71rem;
+    height: 5.1rem;
+    top: 0;
+    left: 0;
 }
-.departure-display span, .return-display span{
+.departure-display span, .return-display span, .check-in-display span, .check-out-display span{
     font-size: xx-large;
     font-weight: bold;
 }
@@ -137,4 +167,11 @@
     position: absolute;
     bottom: -10%;
     cursor: pointer;
+    /* transition: 500ms; */
+}
+#search-btn:hover{
+    transform: scale(1.05);
+}
+#search-btn:active{
+    transform: scale(1);
 }

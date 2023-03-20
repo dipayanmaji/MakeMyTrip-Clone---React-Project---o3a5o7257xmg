@@ -1,6 +1,7 @@
 .header{
-    height: 5rem;
+    height: 6.5rem;
     width: 100vw;
+    background-color: #051423;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -9,7 +10,7 @@
     box-sizing: border-box;
     height: 5rem;
     width: 75rem;
-    /* background-color: rgb(0, 0, 134); */
+    /* background-color: blue; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,11 +52,13 @@
 }
 
 .user-profile{
+    box-sizing: border-box;
     width: 8.15rem;
     height: 3.1rem;
+    padding: 0.5rem;
     text-decoration: none;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     background-color: rgba(221, 221, 221, 0.384);
     border-radius: 1rem;
@@ -65,7 +68,14 @@
 .user-image{
     width: 30px;
     height: 30px;
+    margin-right: 5px;
     border-radius: 50%;
+    border: 1px black solid;
+}
+.user-name{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .user-profile:hover{
     color: aqua;

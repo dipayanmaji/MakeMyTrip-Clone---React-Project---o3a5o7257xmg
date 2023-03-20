@@ -1,9 +1,19 @@
+.register-container{
+    box-sizing: border-box;
+    background-image:  linear-gradient(#051423, #15457b);
+    /* height: 40rem; */
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
 .register{
     background-color: rgb(255, 255, 255);
     width: 75rem;
-    height: 34rem;
+    /* height: 34rem; */
     border-radius: 1rem;
     padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 5rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

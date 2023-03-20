@@ -1,0 +1,61 @@
+.fetch-tickets{
+    width: 75rem;
+    padding: 2rem 3rem;
+    margin-bottom: 3rem;
+    box-sizing: border-box;
+    /* background-image:  linear-gradient(to left top,#0a5f5981, #18beb381); */
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
+    font-family: Calibri;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    transition: 250ms;
+}
+.fetch-tickets:hover{
+    background-color: #eaf5ff;
+    transform: scale(1.0125);
+}
+.fetch-tickets nav div{
+    margin-bottom: 1rem ;
+}
+.fetch-tickets .detail{
+    display: inline;
+    font-size: xx-large;
+    font-weight: bold;
+}
+.fetch-tickets .detail span{
+    font-size: 22px;
+    font-weight: normal;
+}
+#book-btn{
+    width: 12rem;
+    height: 2.5rem;
+    padding: 8px;
+    outline: none;
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    background: linear-gradient(93deg,#fe53e7,#9c06f3);
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
+    text-transform: uppercase;
+    font-family: Calibri;
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -7%;
+    left: 31.5rem;
+    cursor: pointer;
+    transition: 250ms;
+}
+#book-btn:hover{
+    transform: scale(1.05);
+}
+#book-btn:active{
+    transform: scale(1);
+}
