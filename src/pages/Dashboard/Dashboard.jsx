@@ -1,20 +1,30 @@
 import './Dashboard.css';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { MyContext } from '../../components/Context/Context';
-import { redirect, useNavigate } from 'react-router';
+import Modal from '../../components/Modal/Modal';
+import { createPortal } from 'react-dom';
+import { useNavigate } from 'react-router';
 
 const Dashboard= ()=>{
     const navigate = useNavigate();
     const myContext = useContext(MyContext);
+    useEffect(()=>{
+        myContext.onHomePage(false);
+        if(myContext.currUser.email === ''){
+            navigate('/')
+        }
+    },[])
+
     const singOutClicked= ()=>{
-        myContext.loggedInSet(false);
+        myContext.loggedInSetter(false);
         myContext.addCurrUser({
             name:'',
             email:'',
             password:'',
         })
-        navigate('/flights');
+        myContext.displayPortal(true);
     }
+
     return(
         <div className='dashboard-container'>
             <div className='dashboard'>
@@ -24,11 +34,11 @@ const Dashboard= ()=>{
                     <button onClick={singOutClicked}>Sing Out</button>
                 </div>
                 <div className='right-side'>
-                    <h1>Name: {myContext.currUser.name}</h1>
-                    <h1>Email: {myContext.currUser.email}</h1>
-                    <h1>Password: {myContext.currUser.password}</h1>
+                    <p>Hii <span id='name'>{myContext.currUser.name}</span></p>
+                    <p>Your email id is <span id='email'>{myContext.currUser.email}</span></p>
                 </div>
             </div>
+            {myContext.portalView && createPortal(<Modal type={'logOut'} />, document.getElementById('portal'))}
         </div>
     )
 }

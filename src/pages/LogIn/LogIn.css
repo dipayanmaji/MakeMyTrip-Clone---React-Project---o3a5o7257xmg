@@ -1,18 +1,21 @@
 .login-container{
     box-sizing: border-box;
     background-image:  linear-gradient(#051423, #15457b);
-    height: 35rem;
+    /* height: 35rem; */
     width: 100vw;
     display: flex;
     justify-content: center;
 }
 .login-form{
-    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
     width: 75rem;
-    height: 30rem;
+    /* height: 30rem; */
     border-radius: 1rem;
     padding-top: 2rem;
-    box-sizing: border-box;
+    padding-bottom: 2rem;
+    margin-bottom: 5rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
     display: flex;
     flex-direction: column;
     align-items: center;

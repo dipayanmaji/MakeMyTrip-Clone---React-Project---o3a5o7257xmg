@@ -94,22 +94,22 @@ const SearchContent= ({type})=>{
     
                             <div className="trip-details-input">
                                 <label htmlFor="departure">Departure</label>
-                                <p className="departure-display">
+                                <nav className="departure-display">
                                     <p><span>{getDeparture.date}</span>
                                     {getDeparture.month}'{getDeparture.year}
                                     <br/>{getDeparture.day}</p>
                                     <input autoComplete="off" id="departure" type="date" min={getDeparture.min} value={getDeparture.value} onChange={departureChange} />
-                                </p>
+                                </nav>
                             </div>
     
                             <div className="trip-details-input">
                                 <label htmlFor="return">Return</label>
-                                <p className="return-display">
+                                <nav className="return-display">
                                     <p><span>{getReturn.date}</span>
                                     {getReturn.month}'{getReturn.year}
                                     <br/>{getReturn.day}</p>
                                     <input autoComplete="off" id="return" type="date" min={getReturn.min} value={getReturn.value} onChange={returnChange} />
-                                </p>
+                                </nav>
                             </div>
                         </div>
                         <button type="submit" id="search-btn">Search</button>
@@ -213,22 +213,22 @@ const SearchContent= ({type})=>{
     
                             <div className="room-details-input">
                                 <label htmlFor="check-in">Check In</label>
-                                <p className="check-in-display">
+                                <nav className="check-in-display">
                                     <p><span>{checkIn.date}</span>
                                     {checkIn.month}'{checkIn.year}
                                     <br/>{checkIn.day}</p>
                                     <input autoComplete="off" id="check-in" type="date" min={checkIn.min} value={checkIn.value} onChange={checkInChange} />
-                                </p>
+                                </nav>
                             </div>
     
                             <div className="room-details-input">
                                 <label htmlFor="check-out">Check Out</label>
-                                <p className="check-out-display">
+                                <nav className="check-out-display">
                                     <p><span>{checkOut.date}</span>
                                     {checkOut.month}'{checkOut.year}
                                     <br/>{checkOut.day}</p>
                                     <input autoComplete="off" id="check-out" type="date" min={checkOut.min} value={checkOut.value} onChange={checkOutChange} />
-                                </p>
+                                </nav>
                             </div>
 
                             <div className="room-details-input">
@@ -328,22 +328,22 @@ const SearchContent= ({type})=>{
     
                             <div className="trip-details-input">
                                 <label htmlFor="departure">Departure</label>
-                                <p className="departure-display">
+                                <nav className="departure-display">
                                     <p><span>{getDeparture.date}</span>
                                     {getDeparture.month}'{getDeparture.year}
                                     <br/>{getDeparture.day}</p>
                                     <input autoComplete="off" id="departure" type="date" min={getDeparture.min} value={getDeparture.value} onChange={departureChange} />
-                                </p>
+                                </nav>
                             </div>
     
                             <div className="trip-details-input">
                                 <label htmlFor="return">Return</label>
-                                <p className="return-display">
+                                <nav className="return-display">
                                     <p><span>{getReturn.date}</span>
                                     {getReturn.month}'{getReturn.year}
                                     <br/>{getReturn.day}</p>
                                     <input autoComplete="off" id="return" type="date" min={getReturn.min} value={getReturn.value} onChange={returnChange} />
-                                </p>
+                                </nav>
                             </div>
                         </div>
                         <button type="submit" id="search-btn">Search</button>

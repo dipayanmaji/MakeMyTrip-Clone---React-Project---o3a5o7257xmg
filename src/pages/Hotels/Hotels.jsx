@@ -1,20 +1,29 @@
 import './Hotels.css';
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import FetchTickets from '../../components/Fetch Tickets/FetchTickets';
 import SearchContent from '../../components/Search Content/SearchContent';
+import { useParams } from 'react-router';
+import { MyContext } from '../../components/Context/Context';
 
 const Hotels= ()=>{
+    const myContext = useContext(MyContext);
+    useEffect(()=>{
+        myContext.onHomePage(false);
+    },[])
+
     const [hotels, sethotels] = useState([]);
     const [loader, setLoader] = useState(false);
+    const [faild, setFaild] = useState(false);
     const getApi = async()=>{
         setLoader(true);
         try{
             const response = await fetch('https://content.newtonschool.co/v1/pr/63b85bcf735f93791e09caf4/hotels');
             const data = await response.json();
-            console.log(data);
             sethotels([...data]);
             setLoader(false);
         }catch(error){
+            setLoader(false);
+            setFaild(true);
             console.error(error);
         }
     }
@@ -27,6 +36,7 @@ const Hotels= ()=>{
             <SearchContent type={'hotels'} />
             <div className="hotels-tickets-container">
                 <h1>Available Hotels</h1>
+                {faild && <div className='loader' style={{color:'red'}}>Something went worng. Check your internet connection.</div>}
                 {
                     loader? <div className="loader">Fetching Available Hotels...</div> :
                     <div className="hotels-tickets">

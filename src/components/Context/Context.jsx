@@ -3,14 +3,19 @@ import React, { createContext, useState } from "react";
 const MyContext = createContext();
 
 const ContextProvider= (props)=>{
+    const [intoHome, setIntoHome] = useState(false);
+    const onHomePage= (value)=>{
+        setIntoHome(value);
+    }
+
     const [loggedIn, setLoggedIn] = useState(false);
-    const loggedInSet= (value)=>{
+    const loggedInSetter= (value)=>{
         setLoggedIn(value);
     }
 
     const [users, setUsers] = useState({
         'dipayan@gmail.com': {
-            name: 'Dipayan Maji',
+            name: 'Dipayan',
             password: '123',
         }
     });
@@ -25,9 +30,9 @@ const ContextProvider= (props)=>{
     }
 
     const [currUser, setCurrUser] = useState({
-        name: 'Dipayan Maji',
-        email: 'dipayan@gmail.com',
-        password: '123',
+        name: '',
+        email: '',
+        password: '',
     });
     const addCurrUser=(user)=>{
         setCurrUser({
@@ -37,8 +42,32 @@ const ContextProvider= (props)=>{
         })
     }
 
+    const [portalView, setPortalView] = useState(false);
+    const displayPortal=(value)=>{
+        setPortalView(value);
+    }
+
+    const [price, putPrice] = useState(0);
+    const setPrice=(value)=>{
+        putPrice(value);
+    }
+
+    const value= {
+        intoHome,
+        onHomePage,
+        loggedIn,
+        loggedInSetter,
+        users,
+        addUsers,
+        currUser,
+        addCurrUser,
+        portalView,
+        displayPortal,
+        price,
+        setPrice,
+    }
     return(
-        <MyContext.Provider value={{loggedIn, loggedInSet, users, addUsers, currUser, addCurrUser}}>
+        <MyContext.Provider value={{...value}}>
             {props.children}
         </MyContext.Provider>
     )

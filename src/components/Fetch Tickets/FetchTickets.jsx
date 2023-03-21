@@ -1,10 +1,26 @@
 import './FetchTickets.css';
-import React from "react";
+import React, { useContext } from "react";
 import { getDate } from "../Search Content/getDate";
+import { useNavigate } from 'react-router';
+import { MyContext } from '../Context/Context';
+import { createPortal } from 'react-dom';
+import Modal from '../Modal/Modal';
 
 const months = [' Jan',' Feb',' Mar',' Apr',' May',' Jun',' Jul',' Aug',' Sep',' Oct',' Nov',' Dec'];
 
 const FetchTickets= ({type, ticket})=>{
+    const myContext = useContext(MyContext);
+    const navigate = useNavigate();
+    const bookClicked= (e)=>{
+        console.log(e.target.value);
+        if(myContext.currUser.email === ''){
+            myContext.displayPortal(true);
+            return;
+        }
+        myContext.setPrice(e.target.value);
+        navigate('/checkout')
+    }
+
     if(type === 'flights'){
         const departureDate = getDate(new Date(ticket.departure.departureDate));
         const returnDate = getDate(new Date(ticket.return.returnDate));
@@ -50,7 +66,9 @@ const FetchTickets= ({type, ticket})=>{
                         <p className="detail">{ticket.duration}</p>
                     </div>
                 </nav>
-                <button id="book-btn">Book</button>
+                <button value={ticket.price} onClick={bookClicked} id="book-btn">Book</button>
+
+                {myContext.portalView && createPortal(<Modal type={'notLogedIn'} />,document.getElementById('portal'))}
             </div>
         )
     }
@@ -97,7 +115,8 @@ const FetchTickets= ({type, ticket})=>{
                         <p className="detail">{ticket.guests}</p>
                     </div>
                 </nav>
-                <button id="book-btn">Book</button>
+                <button value={ticket.price} onClick={bookClicked} id="book-btn">Book</button>
+                {myContext.portalView && createPortal(<Modal type={'notLogedIn'} />,document.getElementById('portal'))}
             </div>
         )
     }
@@ -140,7 +159,8 @@ const FetchTickets= ({type, ticket})=>{
                         <p className="detail">{ticket.duration}</p>
                     </div>
                 </nav>
-                <button id="book-btn">Book</button>
+                <button value={ticket.price} onClick={bookClicked} id="book-btn">Book</button>
+                {myContext.portalView && createPortal(<Modal type={'notLogedIn'} />,document.getElementById('portal'))}
             </div>
         )
     }

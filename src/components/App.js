@@ -1,5 +1,5 @@
 import '../styles/App.css';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router';
 import Header from './Header/Header';
 import Header2 from './Header2/Header2';
@@ -12,25 +12,35 @@ import Footer from './Footer/Footer';
 import NotFound from '../pages/Not Found/NotFound';
 import { ContextProvider } from './Context/Context';
 import Dashboard from '../pages/Dashboard/Dashboard';
+import Checkout from '../pages/Checkout/checkout';
+
+
 
 const App = () => {
+  const [fixedHeader, setFixedHeader] = useState(false);
+  window.addEventListener('scroll', ()=>{
+    if(window.pageYOffset>72){ // 72 means 72px(or 4.5rem)
+      setFixedHeader(true);
+    }else{
+      setFixedHeader(false);
+    }
+  })
+
   return (
     <ContextProvider>
-      <Header />
-      {/* <Header2 /> */}
+      {fixedHeader? <Header2 />: <Header /> }
       <div id="main">
-        {/* <div className='routes'> */}
-          <Routes>
-            <Route path='/' element={<Flights />} />
-            <Route path='/login' element={<LogIn />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='/flights' element={<Flights />} />
-            <Route path='/hotels' element={<Hotels />} />
-            <Route path='/trains' element={<Trains />} />
-            <Route path='*' element={<NotFound/>} />
-          </Routes>
-        {/* </div> */}
+        <Routes>
+          <Route path='/' element={<Flights />} />
+          <Route path='/login' element={<LogIn />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/flights' element={<Flights />} />
+          <Route path='/hotels' element={<Hotels />} />
+          <Route path='/trains' element={<Trains />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='*' element={<NotFound/>} />
+        </Routes>
       </div>
       <Footer />
     </ContextProvider>

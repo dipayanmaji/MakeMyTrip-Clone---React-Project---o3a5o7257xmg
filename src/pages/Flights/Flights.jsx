@@ -1,11 +1,18 @@
 import './Flights.css';
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import FetchTickets from "../../components/Fetch Tickets/FetchTickets";
 import SearchContent from "../../components/Search Content/SearchContent";
+import { MyContext } from '../../components/Context/Context';
 
 const Flights= ()=>{
+    const myContext = useContext(MyContext);
+    useEffect(()=>{
+        myContext.onHomePage(true);
+    },[])
+
     const [tickets, setTickets] = useState([]);
     const [loader, setLoader] = useState(false);
+    const [faild, setFaild] = useState(false);
     const getApi = async()=>{
         setLoader(true);
         try{
@@ -14,6 +21,8 @@ const Flights= ()=>{
             setTickets([...data]);
             setLoader(false);
         }catch(error){
+            setLoader(false);
+            setFaild(true);
             console.error(error);
         }
     }
@@ -25,6 +34,7 @@ const Flights= ()=>{
             <SearchContent type={'flights'} />
             <div className="flghts-tickets-container">
                 <h1>Available Tickets</h1>
+                {faild && <div className='loader' style={{color:'red'}}>Something went worng. Check your internet connection.</div>}
                 {
                     loader? <div className="loader">Fetching Available Tickets...</div> :
                     <div className="flghts-tickets">
