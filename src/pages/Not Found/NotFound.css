@@ -1,0 +1,31 @@
+.not-found-container{
+    box-sizing: border-box;
+    background-image:  linear-gradient(#051423, #15457b);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.not-found{
+    box-sizing: border-box;
+    width: 75rem;
+    border-radius: 1rem;
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    margin-bottom: 5rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: calibri;
+}
+.not-found p{
+    font-size: 3rem;
+    font-weight: bolder;
+    color: #4a4a4a;
+    margin: 0 0 5px 0;
+}
+.not-found span{
+    font-size: 1.2rem;
+    color: #9b9b9b;
+}

@@ -9,8 +9,13 @@ const NotFound =()=>{
     },[])
 
     return(
-        <div>
-            404 Not Found
+        <div className="not-found-container">
+            <div className='not-found'>
+                <img src={'../../MakeMyTrip 404.png'} alt="404" />
+                <p>Page Not Found</p>
+                <span>We can't seem to find the page</span>
+                <span>you are looking for.</span> 
+            </div>
         </div>
     )
 }
