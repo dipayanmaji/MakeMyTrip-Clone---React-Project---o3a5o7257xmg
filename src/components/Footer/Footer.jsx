@@ -14,7 +14,7 @@ const Footer= ()=>{
                 <div className="copyright">
                     <h3>© 2023 <Link to={'/'}>MAKEMYTRIP</Link> PVT. LTD.</h3>
                     <br/>
-                    Country <h3>India USA UAE</h3>
+                    Country <h3><Link to={'/india'}>India</Link> USA UAE</h3>
                 </div>
             </div>
         </div>
