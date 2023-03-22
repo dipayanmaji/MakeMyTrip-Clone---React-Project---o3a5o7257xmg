@@ -115,7 +115,7 @@ const FetchTickets= ({type, ticket})=>{
                         <p className="detail">{ticket.guests}</p>
                     </div>
                 </nav>
-                <button value={ticket.price} onClick={bookClicked} id="book-btn">Book</button>
+                <button value={ticket.price_per_night} onClick={bookClicked} id="book-btn">Book</button>
                 {myContext.portalView && createPortal(<Modal type={'notLogedIn'} />,document.getElementById('portal'))}
             </div>
         )
