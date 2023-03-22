@@ -1,4 +1,5 @@
 import './Header.css';
+import logo from '../../images/MakeMyTrip-logo-white.png'
 import React, { useContext, useEffect } from 'react';
 import { Link, NavLink, useParams } from 'react-router-dom';
 import { GiCommercialAirplane } from "react-icons/gi";
@@ -11,7 +12,7 @@ const Header= ()=>{
     return(
         <div className='header'>
             <nav className='header-contents'>
-                <Link to={'/'}><img className='logo' src={'../../MakeMyTrip logo white.png'} alt="MakeMyTrip" /></Link>
+                <Link to={'/'}><img className='logo' src={logo} alt="MakeMyTrip" /></Link>
                 {
                     myContext.loggedIn ?
                     <Link to={'/dashboard'} className='user-profile'>
