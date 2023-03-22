@@ -12,7 +12,8 @@ import Footer from './Footer/Footer';
 import NotFound from '../pages/Not Found/NotFound';
 import { ContextProvider } from './Context/Context';
 import Dashboard from '../pages/Dashboard/Dashboard';
-import Checkout from '../pages/Checkout/checkout';
+import Checkout from '../pages/Checkout/Checkout';
+
 
 
 
