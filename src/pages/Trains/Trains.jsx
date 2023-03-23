@@ -22,7 +22,7 @@ const Trains= ()=>{
             setTickets([...data]);
             setTimeout(() => {
                 setLoader(false);
-            }, 2000);
+            }, 5000);
         }catch(error){
             setFaild(true);
             console.error(error);
