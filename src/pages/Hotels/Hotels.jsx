@@ -4,6 +4,7 @@ import FetchTickets from '../../components/Fetch Tickets/FetchTickets';
 import SearchContent from '../../components/Search Content/SearchContent';
 import { useParams } from 'react-router';
 import { MyContext } from '../../components/Context/Context';
+import Loader from '../../components/Loader/Loader';
 
 const Hotels= ()=>{
     const myContext = useContext(MyContext);
@@ -20,9 +21,10 @@ const Hotels= ()=>{
             const response = await fetch('https://content.newtonschool.co/v1/pr/63b85bcf735f93791e09caf4/hotels');
             const data = await response.json();
             sethotels([...data]);
-            setLoader(false);
+            setTimeout(() => {
+                setLoader(false);
+            }, 2000);
         }catch(error){
-            setLoader(false);
             setFaild(true);
             console.error(error);
         }
@@ -33,21 +35,22 @@ const Hotels= ()=>{
 
     return(
         <div className="hotels">
-            <SearchContent type={'hotels'} />
-            <div className="hotels-tickets-container">
-                <h1>Available Hotels</h1>
-                {faild && <div className='loader' style={{color:'red'}}>Something went worng. Check your internet connection.</div>}
-                {
-                    loader? <div className="loader">Fetching Available Hotels...</div> :
-                    <div className="hotels-tickets">
-                        {
-                            hotels.map((hotel, index)=>(
-                                <FetchTickets type={'hotels'} key={index} ticket={hotel} />
-                            ))
-                        }
+            {
+                loader? <Loader type={'hotels'} faild={faild} /> :
+                <>
+                    <SearchContent type={'hotels'} />
+                    <div className="hotels-tickets-container">
+                        <h1>Available Hotels</h1>
+                        <div className="hotels-tickets">
+                            {
+                                hotels.map((hotel, index)=>(
+                                    <FetchTickets type={'hotels'} key={index} ticket={hotel} />
+                                ))
+                            }
+                        </div>
                     </div>
-                }
-            </div>
+                </>
+            }
         </div>
     )
 }

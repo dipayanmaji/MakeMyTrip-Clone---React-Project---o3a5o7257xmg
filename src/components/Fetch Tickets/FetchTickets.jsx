@@ -12,7 +12,6 @@ const FetchTickets= ({type, ticket})=>{
     const myContext = useContext(MyContext);
     const navigate = useNavigate();
     const bookClicked= (e)=>{
-        console.log(e.target.value);
         if(myContext.currUser.email === ''){
             myContext.displayPortal(true);
             return;

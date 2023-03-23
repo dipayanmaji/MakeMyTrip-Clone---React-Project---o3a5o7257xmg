@@ -12,7 +12,7 @@ const Footer= ()=>{
                     <h1><a href="https://www.facebook.com/makemytrip/" target={'_blank'}><FaFacebookF /></a></h1>
                 </div>
                 <div className="copyright">
-                    <h3>© 2023 <Link to={'/'}>MAKEMYTRIP</Link> PVT. LTD.</h3>
+                    <h3>© 2023 <Link to={'/'}>MAKEMYTRIP CLONE</Link></h3> by Dipayan
                     <br/>
                     Country <h3><Link to={'/india'}>India</Link> USA UAE</h3>
                 </div>

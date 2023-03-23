@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import FetchTickets from "../../components/Fetch Tickets/FetchTickets";
 import SearchContent from "../../components/Search Content/SearchContent";
 import { MyContext } from '../../components/Context/Context';
+import Loader from '../../components/Loader/Loader';
 
 const Flights= ()=>{
     const myContext = useContext(MyContext);
@@ -19,9 +20,10 @@ const Flights= ()=>{
             const response = await fetch('https://content.newtonschool.co/v1/pr/63b85b1209f0a79e89e17e3a/flights');
             const data = await response.json();
             setTickets([...data]);
-            setLoader(false);
+            setTimeout(() => {
+                setLoader(false);
+            }, 2000);
         }catch(error){
-            setLoader(false);
             setFaild(true);
             console.error(error);
         }
@@ -31,21 +33,22 @@ const Flights= ()=>{
     },[])
     return(
         <div className="flights">
-            <SearchContent type={'flights'} />
-            <div className="flghts-tickets-container">
-                <h1>Available Tickets</h1>
-                {faild && <div className='loader' style={{color:'red'}}>Something went worng. Check your internet connection.</div>}
-                {
-                    loader? <div className="loader">Fetching Available Tickets...</div> :
-                    <div className="flghts-tickets">
-                        {
-                            tickets.map((ticket, index)=>(
-                                <FetchTickets key={index} type={'flights'} ticket={ticket} />
-                            ))
-                        }
+            {
+                loader? <Loader type={'flights'} faild={faild} /> :
+                <>
+                    <SearchContent type={'flights'} />
+                    <div className="flghts-tickets-container">
+                        <h1>Available Tickets</h1>
+                        <div className="flghts-tickets">
+                            {
+                                tickets.map((ticket, index)=>(
+                                    <FetchTickets key={index} type={'flights'} ticket={ticket} />
+                                ))
+                            }
+                        </div>
                     </div>
-                }
-            </div>
+                </>
+            }
         </div>
     )
 }

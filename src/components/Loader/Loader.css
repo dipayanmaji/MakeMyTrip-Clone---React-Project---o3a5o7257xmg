@@ -1,0 +1,35 @@
+.loader-container{
+    background-image:  linear-gradient(#051423, #15457b);
+    /* height: 19rem; */
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+.loader{
+    box-sizing: border-box;
+    width: 75rem;
+    padding: 3.5rem 2rem 2rem 2rem;
+    margin-bottom: 5rem;
+    border-radius: 1rem;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.13);
+    box-shadow: 0 1px 7px 0 rgba(0,0,0,.2);
+    font-family: Calibri;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loader .plane-gif{
+    width: 250px;
+}
+.loader .hotel-gif{
+    padding: 5rem 0;
+    width: 500px;
+}
+.loader .train-gif{
+    transform: scaleX(-1);
+    width: 500px;
+    margin-left: 5rem;
+}
