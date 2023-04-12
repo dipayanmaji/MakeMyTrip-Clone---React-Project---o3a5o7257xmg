@@ -23,7 +23,7 @@ const Hotels= ()=>{
             sethotels([...data]);
             setTimeout(() => {
                 setLoader(false);
-            }, 5000);
+            }, 3000);
         }catch(error){
             setFaild(true);
             console.error(error);
