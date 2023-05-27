@@ -9,10 +9,7 @@ import Header2 from "./components/Header2/Header2";
 
 ReactDOM.render(
     <BrowserRouter>
-        {/* <Header /> */}
-        {/* <Header2 /> */}
         <App/>
-        {/* <Footer /> */}
     </BrowserRouter>,
     document.getElementById("root")
 );
