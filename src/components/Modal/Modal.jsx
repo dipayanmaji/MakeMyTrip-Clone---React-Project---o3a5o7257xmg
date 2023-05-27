@@ -23,7 +23,7 @@ const Modal=({type})=>{
 
                     {type === 'logOut' && <div className='logOut-modal'>You are successfully log out.</div>}
 
-                    {type === 'checkout' && <section className='checkout-modal'>Congratulation! You booking successfully done.</section>}
+                    {type === 'checkout' && <section className='checkout-modal'>Congratulation! <br/> Booking successfully done.</section>}
 
                     {
                         type === 'notLogedIn'  &&
